@@ -4,11 +4,11 @@ author: remarkablemark
 
 inputs:
   version:
-    description: Version
+    description: The tq binary version
     required: false
     default: 0.2.2
   cache:
-    description: Enable caching
+    description: Whether to cache the tq binary
     required: false
     default: true
 

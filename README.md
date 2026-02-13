@@ -35,7 +35,7 @@ See [action.yml](action.yml)
 
 ### `version`
 
-**Optional**: The binary [version](https://github.com/cryptaliagy/tomlq/releases). Defaults to [`0.2.2`](https://github.com/cryptaliagy/tomlq/releases/tag/0.2.2):
+**Optional**: The tq binary [version](https://github.com/cryptaliagy/tomlq/releases). Defaults to [`0.2.2`](https://github.com/cryptaliagy/tomlq/releases/tag/0.2.2):
 
 ```yaml
 - uses: remarkablemark/setup-tq@v1
@@ -45,7 +45,7 @@ See [action.yml](action.yml)
 
 ### `cache`
 
-**Optional**: Enable caching. Defaults to `true`:
+**Optional**: Whether to cache the tq binary. Defaults to `true`:
 
 ```yaml
 - uses: remarkablemark/setup-tq@v1
