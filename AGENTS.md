@@ -41,7 +41,9 @@ act -W .github/workflows/test.yml --platform ubuntu-latest
 
 ### Linting
 
-Validate YAML syntax manually: `yamllint -d relaxed action.yml` or `python3 -c "import yaml; yaml.safe_load(open('action.yml'))"`
+The lint workflow (`.github/workflows/lint.yml`) runs on push and pull requests. It uses `yamllint -d relaxed .` to validate all YAML files.
+
+To run locally: `yamllint -d relaxed .`
 
 ### Release Process
 
@@ -135,6 +137,7 @@ branding:
 .
 ├── action.yml
 ├── .github/workflows/
+│   ├── lint.yml
 │   ├── test.yml
 │   ├── commitlint.yml
 │   └── release-please.yml
