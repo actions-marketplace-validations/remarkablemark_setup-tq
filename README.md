@@ -18,7 +18,7 @@ jobs:
         uses: remarkablemark/setup-tq@v1
 
       - name: Show project version
-        run: tq -f pyproject.toml 'project.version'
+        run: tq -f pyproject.toml 'project.version' -r
 ```
 
 ## Usage
