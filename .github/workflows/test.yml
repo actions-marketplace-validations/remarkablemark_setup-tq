@@ -18,7 +18,44 @@ jobs:
       - name: Run action
         uses: ./
 
+      - name: Show version
+        run: tq --version
+
+      - name: Show help
+        run: tq --help
+
+      - name: Create example.toml
+        shell: bash
+        run: |
+          printf "[test]\nkey = \"value\"\n" > example.toml
+          cat example.toml
+
+      - name: Test tq
+        shell: bash
+        run: |
+          if [[ $(tq -r -f example.toml 'test.key') != 'value' ]]; then
+            echo 'Value does not match. See value below:'
+            tq --raw --file example.toml 'test.key'
+            exit 1
+          fi
+
       - name: Run action with version
         uses: ./
         with:
-          version: 2.3.4
+          version: 0.2.1
+
+      - name: Check version
+        shell: bash
+        run: |
+          tq -V &> TQ_VERSION
+          if [[ $(cat TQ_VERSION) != 'tomlq 0.2.1' ]]; then
+            echo 'Version does not match. See version below:'
+            tq -V
+            exit 1
+          fi
+
+      - name: Output TOML
+        run: tq -f example.toml .
+
+      - name: Output JSON
+        run: tq --file example.toml . --output json --pretty

@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Setup tq
         uses: remarkablemark/setup-tq@v1
+
+      - name: Show project version
+        run: tq -f pyproject.toml 'project.version'
 ```
 
 ## Usage
@@ -32,12 +35,12 @@ See [action.yml](action.yml)
 
 ### `version`
 
-**Optional**: The version. Defaults to `1.2.3`:
+**Optional**: The binary [version](https://github.com/cryptaliagy/tomlq/releases). Defaults to [`0.2.2`](https://github.com/cryptaliagy/tomlq/releases/tag/0.2.2):
 
 ```yaml
 - uses: remarkablemark/setup-tq@v1
   with:
-    version: 1.2.3
+    version: 0.2.2
 ```
 
 ## License

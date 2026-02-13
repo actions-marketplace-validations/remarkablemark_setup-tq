@@ -6,15 +6,19 @@ inputs:
   version:
     description: Version
     required: false
-    default: 1.2.3
+    default: 0.2.2
 
 runs:
   using: composite
   steps:
-    - name: Print version
+    # https://github.com/marketplace/actions/install-cargo-binstall
+    - name: Install Binstall
+      uses: cargo-bins/cargo-binstall@v1.17.4
+
+    # https://github.com/cryptaliagy/tomlq
+    - name: Install tq
       shell: bash
-      run: |
-        echo "version: $VERSION"
+      run: cargo binstall -y tomlq@$VERSION
       env:
         VERSION: ${{ inputs.version }}
 
