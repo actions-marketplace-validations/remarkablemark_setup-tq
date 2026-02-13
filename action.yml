@@ -29,14 +29,26 @@ runs:
         restore-keys: |
           ${{ runner.os }}-cargo-tq-
 
+    - name: Check binary
+      id: check
+      shell: bash
+      run: |
+        if command -v tq >/dev/null 2>&1 && [[ "$(tq --version)" == *"$VERSION" ]]; then
+          echo 'installed=true' >> $GITHUB_OUTPUT
+        fi
+      env:
+        VERSION: ${{ inputs.version }}
+
     # https://github.com/marketplace/actions/install-cargo-binstall
     - name: Install Binstall
+      if: steps.check.outputs.installed != 'true'
       uses: cargo-bins/cargo-binstall@v1.17.4
 
     # https://github.com/cryptaliagy/tomlq
     - name: Install tq
+      if: steps.check.outputs.installed != 'true'
       shell: bash
-      run: cargo binstall -y tomlq@$VERSION
+      run: cargo binstall -y tomlq@$VERSION --force
       env:
         VERSION: ${{ inputs.version }}
 
