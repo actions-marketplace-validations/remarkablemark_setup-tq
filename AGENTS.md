@@ -23,19 +23,29 @@ Tests run via GitHub Actions. The test workflow (`.github/workflows/test.yml`) r
 
 Tests on multiple OSes: `ubuntu-latest`, `macos-latest`, `windows-latest`.
 
-### Local Testing with act
+The workflow includes these test scenarios:
+
+1. **Default test**: Run action with default inputs, verify `tq --version` and `tq --help`
+2. **TOML parsing**: Create `example.toml` and verify `tq -r -f example.toml 'test.key'` returns correct value
+3. **Version input**: Run action with `version: 0.2.1` and `cache: false`, verify exact version
+4. **Output formats**: Test JSON and raw output formats
+
+### Running Tests Locally
+
+Use `act` to run the full test workflow. There is no way to run a single test locally.
 
 ```bash
 act -W .github/workflows/test.yml
+act -W .github/workflows/test.yml --platform ubuntu-latest
 ```
+
+### Linting
+
+Validate YAML syntax manually: `yamllint -d relaxed action.yml` or `python3 -c "import yaml; yaml.safe_load(open('action.yml'))"`
 
 ### Release Process
 
-Automated via `.github/workflows/release-please.yml`:
-
-- Triggered on push to `master` branch
-- Uses "simple" release type
-- Creates semantic version tags
+Automated via `.github/workflows/release-please.yml` - triggered on push to `master` branch, uses "simple" release type.
 
 ## Code Style Guidelines
 
@@ -102,24 +112,21 @@ branding:
 
 ### Naming Conventions
 
-- **Action name**: kebab-case
-- **Input names**: kebab-case
+- **Action/Input/Job names**: kebab-case
 - **Step names**: Title case
-- **Job names**: kebab-case
 - **Environment variables**: SCREAMING_SNAKE_CASE
 
 ### GitHub Actions Best Practices
 
-1. Always specify `permissions` (principle of least privilege)
-2. Use pinned action versions (e.g., `actions/checkout@v6`)
-3. Use `with:` for inputs instead of environment variables
-4. Set `continue-on-error: false` explicitly
-5. Use `id:` on steps when referencing outputs
+1. Specify `permissions` (principle of least privilege)
+2. Pin action versions (e.g., `actions/checkout@v6`)
+3. Use `with:` for inputs
+4. Use `id:` on steps when referencing outputs
 
 ### Error Handling
 
 - Steps fail on errors by default
-- Use `if: ${{ always() }}` or `if: ${{ failure() }}` when continuing is needed
+- Use `if: ${{ always() }}` or `if: ${{ failure() }}` when needed
 - Check for required inputs
 
 ## File Structure
@@ -142,7 +149,7 @@ branding:
 
 1. Add to `inputs:` in `action.yml`
 2. Add `with:` in steps using it
-3. Update `README.md` with documentation
+3. Update `README.md`
 
 ### Adding a Test Case
 
@@ -154,7 +161,3 @@ Add a step in `.github/workflows/test.yml`:
   with:
     <input>: <value>
 ```
-
-### Updating Dependencies
-
-Update action versions in `.github/workflows/*.yml` and `.github/dependabot.yml`.
