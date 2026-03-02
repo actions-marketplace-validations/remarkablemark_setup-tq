@@ -42,7 +42,7 @@ runs:
     # https://github.com/marketplace/actions/install-cargo-binstall
     - name: Install Binstall
       if: steps.check.outputs.installed != 'true'
-      uses: cargo-bins/cargo-binstall@v1.17.5
+      uses: cargo-bins/cargo-binstall@v1.17.6
 
     # https://github.com/cryptaliagy/tomlq
     - name: Install tq
