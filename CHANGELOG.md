@@ -1,5 +1,47 @@
 # Changelog
 
+## [1.0.22](https://github.com/remarkablemark/setup-tq/compare/v1.0.21...v1.0.22) (2026-10-27)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.26.0 to 1.26.1 ([#50](https://github.com/remarkablemark/setup-tq/issues/50)) ([c9b65e3](https://github.com/remarkablemark/setup-tq/commit/c9b65e3fd086a9499df8a0f4e2138dcb571056d6))
+
+## [1.0.21](https://github.com/remarkablemark/setup-tq/compare/v1.0.20...v1.0.21) (2026-10-20)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.25.3 to 1.26.0 ([#48](https://github.com/remarkablemark/setup-tq/issues/48)) ([6cd6e21](https://github.com/remarkablemark/setup-tq/commit/6cd6e215ff473102814754bc6cba9276b0f461cc))
+
+## [1.0.20](https://github.com/remarkablemark/setup-tq/compare/v1.0.19...v1.0.20) (2026-10-14)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.25.2 to 1.25.3 ([#46](https://github.com/remarkablemark/setup-tq/issues/46)) ([0960c27](https://github.com/remarkablemark/setup-tq/commit/0960c27ca82142b763eb2d841de1431453702c28))
+
+## [1.0.19](https://github.com/remarkablemark/setup-tq/compare/v1.0.18...v1.0.19) (2026-10-09)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.25.1 to 1.25.2 ([#44](https://github.com/remarkablemark/setup-tq/issues/44)) ([894d2b9](https://github.com/remarkablemark/setup-tq/commit/894d2b924f29643b4caad426e2fbe7b4a40dc2f4))
+
+## [1.0.18](https://github.com/remarkablemark/setup-tq/compare/v1.0.17...v1.0.18) (2026-10-06)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.24.0 to 1.25.1 ([#42](https://github.com/remarkablemark/setup-tq/issues/42)) ([fad66df](https://github.com/remarkablemark/setup-tq/commit/fad66df59a3ba066c37bb0202d61555b21e954a0))
+
+## [1.0.17](https://github.com/remarkablemark/setup-tq/compare/v1.0.16...v1.0.17) (2026-09-29)
+
+
+### Build System
+
+* **deps:** bump cargo-bins/cargo-binstall from 1.23.0 to 1.24.0 ([#40](https://github.com/remarkablemark/setup-tq/issues/40)) ([afe6fc3](https://github.com/remarkablemark/setup-tq/commit/afe6fc39d81ea5d7ccf04de008de6373123bff8c))
+
 ## [1.0.16](https://github.com/remarkablemark/setup-tq/compare/v1.0.15...v1.0.16) (2026-09-08)
 
 
